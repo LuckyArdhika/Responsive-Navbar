@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive navbar</title>
+</head>
+<body>
+    <style>
+        nav {
+            display: flex;
+            background-color: black;
+        } .head > button {
+            display: none;
+        }
+        nav > a {
+            background-color: rgb(0, 255, 85); /* Styling */
+            display: block;
+            text-decoration: none; /* Styling */
+            padding: 2vmin; /* Styling */
+            font-size: medium; /* Styling */
+            font-weight: 600; /* Styling */
+        } nav > a:hover {
+            background-color: rgb(255, 60, 0); /* Styling */
+            color: white; /* Styling */
+        } .head {
+            display: none;
+        } .dropdown-content {
+            display: none;
+            z-index: 1;
+            position: absolute;
+            color: white;
+            padding: 1vmax;
+            top: 8%;
+            width: 80px;
+        } .dropdown-content > a {
+            margin: 2px;
+            text-decoration: none;
+        } .dropdown-content > a:hover {
+            background-color: red;
+            color: white;
+        } .dropbtn:hover .dropdown-content {
+            display: flex !important;
+            flex-direction: column;
+            background-color: rgb(0, 255, 136);
+            color: white;
+        } .dropbtn {
+            color: white;
+            background-color: rgb(0, 2, 128);
+            font-weight: 600;
+            text-align: center;
+            padding: 2vmin;
+        } .dropbtn span{
+            margin-bottom: 20px;
+        }
+
+        @media (max-width:400px){
+        .head > button {
+            display:initial;
+        }
+        nav {
+            text-align: center; /* Styling */
+            display: none;
+        } .a-visible {
+            display: block;
+        } .head {
+            background-color: black; /* Styling */
+            display: block;
+        }
+        }
+    </style>
+    <div class="head">
+        <img src="" alt="">
+        <button onclick="toggle()">Menu</button>
+    </div>
+    <nav id="navbar">
+        <a href="">home</a>
+        <a href="">demo</a>
+        <a href="">display</a>
+        <div class="dropbtn" onclick="dropdown()">
+            <span>Dropdown</span>
+          <div class="dropdown-content" id="myDropdown">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+        </div>
+    </nav>
+    <p>click the button to see the changes (mobile)</p>
+    <script>
+        function toggle(e){
+            console.log('toggle clicked');
+            const navbar = document.getElementById("navbar");
+            if (navbar.classList.contains("a-visible")) {
+                navbar.classList.remove("a-visible");
+            } else {
+                navbar.classList.add("a-visible");
+            }
+        }
+    </script>
+</body>
+</html>
